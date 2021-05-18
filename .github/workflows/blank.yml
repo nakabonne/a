@@ -7,10 +7,13 @@ jobs:
   register-event:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
+    - name: set git tag
+      run: export TAG=`git describe --tags`
     - uses: pipe-cd/actions-event-register@main
       with:
         api-address: ${{ secrets.PIPECD_API_ADDRESS }}
         api-key: ${{ secrets.PIPECD_API_KEY }}
         event-name: image-update
         labels: app=foo,env=dev
-        data: ${{ github.sha }}
+        data: ${{ env.TAG }}
