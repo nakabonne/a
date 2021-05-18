@@ -13,5 +13,5 @@ jobs:
         api-address: ${{ secrets.PIPECD_API_ADDRESS }}
         api-key: ${{ secrets.PIPECD_API_KEY }}
         event-name: image-update
-        labels: app=foo,env=dev
+        #labels: app=foo,env=dev
         data: ${{ github.ref }}
