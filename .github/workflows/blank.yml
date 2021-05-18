@@ -9,7 +9,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: set git tag
-      run: echo "TAG=`git describe --tags`" >> $GITHUB_ENV
+      #run: echo "TAG=`git describe --tags`" >> $GITHUB_ENV
+      run: echo "TAG=v1.1" >> $GITHUB_ENV
     - uses: pipe-cd/actions-event-register@main
       with:
         api-address: ${{ secrets.PIPECD_API_ADDRESS }}
