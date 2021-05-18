@@ -4,7 +4,7 @@ on:
     branches:
     - master
 jobs:
-  comment-run:
+  register-event:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -14,4 +14,4 @@ jobs:
         api-key: ${{ secrets.PIPECD_API_KEY }}
         event-name: image-update
         labels: app=foo,env=dev
-        data: $GITHUB_REF
+        data: ${{ github.ref }}
