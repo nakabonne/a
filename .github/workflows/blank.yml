@@ -1,0 +1,19 @@
+# This is a basic workflow to help you get started with Actions
+
+name: "Register an event on PipeCD"
+on:
+  push:
+    branches:
+    - main
+jobs:
+  comment-run:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: pipe-cd/actions-event-register@main
+      with:
+        api-address: ${{ secrets.PIPECD_API_ADDRESS }}
+        api-key: ${{ secrets.PIPECD_API_KEY }}
+        event-name: image-update
+        labels: app=foo,env=dev
+        data: $GITHUB_REF
