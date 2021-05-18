@@ -2,7 +2,7 @@ name: "Register an event on PipeCD"
 on:
   push:
     branches:
-    - ma
+    - master
 jobs:
   comment-run:
     runs-on: ubuntu-latest
